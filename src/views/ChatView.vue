@@ -45,7 +45,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col h-screen bg-gray-900 text-white">
+  <div class="flex flex-col h-screen bg-slate-100 text-slate-900">
     <Header />
 
     <!-- Chat messages -->
@@ -58,16 +58,15 @@ onMounted(() => {
       >
         <div
           v-html="formatMessage(msg.content)"
-          class="max-w-xs px-4 py-2 rounded-lg md:max-w-md"
-          :class="
-            msg.role === 'user'
-              ? 'bg-blue-600 text-white'
-              : 'bg-gray-700 text-white'
-          "
+          class="max-w-xs px-4 py-2 rounded-xl md:max-w-md shadow-sm"
+          :class="msg.role === 'user'
+            ? 'bg-green-500 text-white'
+            : 'bg-white text-slate-900 border border-slate-300'"
         ></div>
       </div>
+
       <div v-if="chatStore.isLoading" class="flex justify-start">
-        <div class="bg-gray-700 text-white px-4 py-2 rounded-lg">
+        <div class="bg-white text-slate-900 px-4 py-2 rounded-xl border border-slate-300 shadow-sm">
           <span class="animate-pulse">AI is thinking...</span>
         </div>
       </div>
@@ -76,3 +75,5 @@ onMounted(() => {
     <ChatInput @send="chatStore.sendMessage" />
   </div>
 </template>
+
+

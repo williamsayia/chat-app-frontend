@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { useUserStore } from '../stores/user';
 import { useRouter } from 'vue-router';
-import robotImage from '../assets/robot.png';
+import robotImage from '../assets/icons8-robot-40.png';
 
 const userStore = useUserStore();
 const router = useRouter();
@@ -46,8 +46,8 @@ const createUser = async () => {
 </script>
 
 <template>
-  <div class="h-screen flex items-center justify-center bg-gray-900 text-white">
-    <div class="p-8 bg-gray-800 rounded-lg shadow-lg w-full max-w-md">
+  <div class="h-screen flex items-center justify-center bg-slate-100 text-slate-900">
+    <div class="p-8 bg-white rounded-xl shadow-xl w-full max-w-md">
       <img :src="robotImage" alt="" class="mx-auto w-24 h-24 mb-4" />
       <h1 class="text-2xl font-semibold mb-4 text-center">
         Welcome To Chat AI
@@ -55,26 +55,27 @@ const createUser = async () => {
 
       <input
         type="text"
-        class="w-full p-2 mb-2 bg-gray-700 text-white rounded-lg focus:outline-none"
+        class="w-full p-2 mb-2 bg-slate-200 text-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
         placeholder="Name"
         v-model="name"
       />
       <input
         type="email"
-        class="w-full p-2 mb-2 bg-gray-700 text-white rounded-lg focus:outline-none"
+        class="w-full p-2 mb-2 bg-slate-200 text-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
         placeholder="Email"
         v-model="email"
       />
 
       <button
         @click="createUser"
-        class="w-full p-2 bg-blue-500 rounded-lg"
+        class="w-full p-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition duration-200"
         :disabled="loading"
       >
         {{ loading ? 'Logging in...' : 'Start Chat' }}
       </button>
 
-      <p v-if="error" class="text-red-400 text-center mt-2">{{ error }}</p>
+      <p v-if="error" class="text-red-500 text-center mt-2">{{ error }}</p>
     </div>
   </div>
 </template>
+
